@@ -8,6 +8,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      margin: {
+        '-20px': '-20px', // Custom negative margin
+      },
+      colors: {
+        logo: {
+          100: "#1C4980",
+          200:"#DCEDFE",
+          300:"#0172E6"
+        }
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
