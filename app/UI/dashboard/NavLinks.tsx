@@ -5,16 +5,18 @@ import {
   UserGroupIcon,
   HomeIcon,
   DocumentDuplicateIcon,
+  PencilSquareIcon
 } from "@heroicons/react/24/outline";
 import { AdminIcons } from "../Icons/Icons";
-import { usePathname } from 'next/navigation';
+import { usePathname } from "next/navigation";
+import {Noto} from '@/app/lib/fonts';
 
 const links = [
   { name: "Dashboard", href: "/dashboard", icon: HomeIcon },
   {
     name: "Assessment",
     href: "/dashboard/assessment",
-    icon: DocumentDuplicateIcon,
+    icon: PencilSquareIcon,
   },
   { name: "My Library", href: "/dashboard/library", icon: UserGroupIcon },
   {
@@ -29,7 +31,7 @@ export default function NavLinks() {
   // console.log(pathName);
 
   return (
-    <>
+    <div className={`flex flex-row gap-2 md:flex-col justify-between mt-4 ${Noto.className}`}>
       {links.map((link) => {
         const LinkIcon = link.icon;
         const isActive = pathName === link.href;
@@ -38,13 +40,17 @@ export default function NavLinks() {
           <Link
             key={link.name}
             href={link.href}
-            className={`flex h-[48px] grow items-center justify-center gap-2 p-4 text-xl font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3 ${isActive ? 'text-blue-600 bg-sky-100' : ''}`}
+            className={`flex flex-row items-center justify-between text-xl py-2 px-6 md:py-6  font-medium md:flex-col md:justify-center md:px-0 ${
+              isActive
+                ? "text-logo-300 bg-logo-500 rounded-md border-[1px] border-logo-300"
+                : "text-cyan-900"
+            }`}
           >
-            <LinkIcon className="w-8" />
+            <LinkIcon className="w-8 cursor-pointer" />
             <p className="hidden md:block">{link.name}</p>
           </Link>
         );
       })}
-    </>
+    </div>
   );
 }

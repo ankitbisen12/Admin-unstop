@@ -5,10 +5,11 @@ import {
   LinkIcon,
   InboxStackIcon,
 } from "@heroicons/react/24/outline";
+import { applyPadd } from "@/app/lib/utils";
 
-const Overview = () => {
+const Overview = ({ assessmentDetails }: { assessmentDetails: any[] }) => {
   return (
-    <div className="p-2">
+    <div className="p-0">
       <div className="px-2 py-4">
         <h1 className="text-2xl font-semibold text-slate-500">
           Assessment Overview
@@ -27,7 +28,7 @@ const Overview = () => {
                 <InboxStackIcon className="w-9 h-9 text-violet-800" />
               </div>
               <h2 className="text-blue-950 text-3xl leading-3 title-font font-bold">
-                34
+                {applyPadd(assessmentDetails.length)}
               </h2>
             </div>
           </div>
@@ -46,16 +47,16 @@ const Overview = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 text-black border-2 border-t-0 border-b-0 2xl:border-t-2 2xl:border-b-2 2xl:border-l-0 2xl:border-r-0 items-center justify-between">
-          <div className="flex h-full  py-3 px-4 lg:px-6 flex-col">
+          <div className="flex h-full py-3 px-4 lg:px-6 flex-col">
             <div className="flex-grow mb-4">
               <h1 className="text-xl font-bold text-blue-950">Candidates</h1>
             </div>
             <div className="flex flex-row items-center mb-3">
-              <div className="bg-violet-300 rounded-lg  p-2 mr-3">
+              <div className="bg-violet-300 rounded-lg p-2 mr-1 md:mr-3">
                 <UsersIcon className="w-9 h-9 text-violet-800" />
               </div>
               <div className="flex flex-row">
-                <div className="flex flex-col border-r-2 px-4">
+                <div className="flex flex-col border-r-2 px-2 md:px-4">
                   <div className="flex flex-row items-center">
                     <h1 className="text-2xl font-bold text-blue-950">11,875</h1>
                     <h4 className="text-lg font-semibold ml-1 text-green-500">
@@ -86,18 +87,18 @@ const Overview = () => {
           </div>
         </div>
         <div className="grid grid-cols-1 text-black border-2 rounded-bl-lg rounded-br-lg  2xl:rounded-tr-lg 2xl:rounded-br-lg 2xl:rounded-bl-none items-center justify-between">
-          <div className="flex h-full  py-3 px-4 lg:px-6 flex-col">
+          <div className="flex h-full py-3 px-4 lg:px-6 flex-col">
             <div className="flex-grow mb-4">
               <h1 className="text-xl font-bold text-blue-950">
                 Candidates Source
               </h1>
             </div>
             <div className="flex flex-row items-center mb-3">
-              <div className="bg-pink-300 rounded-lg  p-2 mr-3">
+              <div className="bg-pink-300 rounded-lg  p-2 mr-1 md:mr-3">
                 <GlobeAltIcon className="w-9 h-9 text-pink-600" />
               </div>
               <div className="flex flex-row">
-                <div className="flex flex-col border-r-2 px-4">
+                <div className="flex flex-col border-r-2 px-2 md:px-4">
                   <div className="flex flex-row items-center">
                     <h1 className="text-2xl font-bold text-blue-950">11,875</h1>
                     <h4 className="text-lg font-semibold ml-1 text-green-500">
@@ -107,19 +108,6 @@ const Overview = () => {
                   <div>
                     <span className="text-lg font-semibold text-blue-950">
                       Email
-                    </span>
-                  </div>
-                </div>
-                <div className="flex flex-col border-r-2 px-4">
-                  <div className="flex flex-row items-center">
-                    <h1 className="text-2xl font-bold text-blue-950">1,14</h1>
-                    <h4 className="text-lg font-semibold ml-1 text-green-500">
-                      +89
-                    </h4>
-                  </div>
-                  <div>
-                    <span className="text-lg font-semibold text-blue-950">
-                      Social
                     </span>
                   </div>
                 </div>

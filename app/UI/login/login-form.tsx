@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import { lusitana } from "@/app/lib/fonts";
 import {
   AtSymbolIcon,
   KeyIcon,
@@ -22,7 +21,7 @@ export default function LoginForm() {
         </div>
       </div>
       <div className="flex-1 rounded-none px-6 pb-4 pt-8">
-        <h1 className={`${lusitana.className} mb-3 text-2xl`}>
+        <h1 className={` mb-3 text-2xl`}>
           Please log in to continue.
         </h1>
         <div className="w-full">

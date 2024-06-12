@@ -1,6 +1,5 @@
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import Image from "next/image";
-import { lusitana } from "@/app/lib/fonts";
 import { fetchLatestSubmission } from "@/app/lib/data";
 
 export default async function LatestSubmission() {
@@ -8,10 +7,10 @@ export default async function LatestSubmission() {
 
   return (
     <div className="flex w-full flex-col md:col-span-4">
-      <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
+      <h2 className={`text-2xl font-semibold text-slate-500 mb-4`}>
         Latest Submission
       </h2>
-      <div className="flex grow flex-col justify-between rounded-xl bg-gray-50 p-4">
+      <div className="flex grow flex-col justify-between rounded-xl bg-gray-200 p-4">
         <div className="bg-white px-6">
           {latestSubmission.map((submission, i) => {
             const { submission_user } = submission;
@@ -20,19 +19,17 @@ export default async function LatestSubmission() {
               .map((element: string) => element.charAt(0))
               .join('');
 
-            console.log(name);
-
             return (
               <div
                 key={submission.id}
-                className="flex flex-row items-center justify-between py-4 border-t"
+                className={`flex flex-row items-center justify-between py-4 ${i!==0 ? 'border-t':''}`}
               >
                 <div className="flex items-center">
                   <span className="inline-block h-8 w-8 mr-4 rounded-full bg-indigo-500 text-white text-center py-1 text-md font-semibold">
                     {name}
                   </span>
                   <div className="min-w-0">
-                    <p className="truncate text-sm font-semibold md:text-base">
+                    <p className="truncate text-sm font-semibold md:text-base text-gray-800">
                       {submission.submission_user.name}
                     </p>
                     <p className="hidden text-sm text-gray-500 sm:block">
@@ -41,7 +38,7 @@ export default async function LatestSubmission() {
                   </div>
                 </div>
                 <p
-                  className={`${lusitana.className} truncate text-sm font-medium md:text-base`}
+                  className={` truncate text-sm font-medium md:text-base`}
                 >
                   {submission.name}
                 </p>
