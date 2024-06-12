@@ -6,6 +6,10 @@ export default async function DashboardChart() {
   const testDetails = await fetchSubmission();
   const chartHeight = 350;
 
+  if (!Array.isArray(testDetails)) {
+    return <p className="mt-4 text-gray-400">No data available.</p>;
+  }
+  
   const { yAxisLabels, topLabel } = generateYAxis(testDetails);
 
   if (!testDetails || testDetails.length === 0) {

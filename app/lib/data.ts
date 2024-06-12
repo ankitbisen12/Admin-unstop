@@ -11,6 +11,7 @@ export async function fetchSubmission() {
     const submissions = await Submission.find({})
       .populate("submission_user")
       .limit(10);
+    console.log("submission",submissions);
     return submissions;
   } catch (error) {
     console.error("Database Error:", error);
