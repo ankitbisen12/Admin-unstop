@@ -3,6 +3,17 @@ import Image from "next/image";
 import { DeleteTest, UpdateTest } from "../button";
 import { fetchTestPages } from "@/app/lib/data";
 
+interface Skill {
+  skill: string;
+}
+
+interface Test {
+  _id: string;
+  testName: string;
+  skills: Skill[];
+  duration: string;
+  status: string;
+}
 const Table = async ({
   query,
   currentPage,
@@ -10,7 +21,7 @@ const Table = async ({
   query: string;
   currentPage: number;
 }) => {
-  const { tests } = await fetchTestPages(query);
+  const { tests }:{ tests: Test[] } = await fetchTestPages(query);
 
   if (!tests || tests.length === 0) {
     return <p className="mt-2 text-center text-gray-500 font-semibold">No Test found</p>;
